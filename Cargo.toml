@@ -1,0 +1,6 @@
+[package]
+name = "VSS-SampleRust"
+version = "0.1.0"
+authors = ["johnathan <johnathanfercher22@gmail.com>"]
+
+[dependencies]
