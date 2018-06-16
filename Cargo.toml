@@ -1,6 +1,7 @@
 [package]
-name = "VSS-SampleRust"
+name = "vss-sample-rust"
 version = "0.1.0"
 authors = ["johnathan <johnathanfercher22@gmail.com>"]
 
 [dependencies]
+vss-core-rust = { git = "https://github.com/VSS-SDK/VSS-CoreRust", branch = "master" }
