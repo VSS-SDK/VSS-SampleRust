@@ -1,16 +1,16 @@
-extern crate vss_core_rust;
+extern crate vss_core;
 
-use vss_core_rust::communications::command_sender::CommandSender;
-use vss_core_rust::domain::team_type::TeamType;
-use vss_core_rust::domain::command::Command;
-use vss_core_rust::domain::wheels_command::WheelsCommand;
-use vss_core_rust::communications::state_receiver::StateReceiver;
-use vss_core_rust::domain::field_transaformation_type::FieldTransformationType;
-use vss_core_rust::communications::debug_sender::DebugSender;
-use vss_core_rust::domain::debug::Debug;
-use vss_core_rust::domain::pose::Pose;
-use vss_core_rust::domain::point::Point;
-use vss_core_rust::domain::state::State;
+use vss_core::communications::command_sender::CommandSender;
+use vss_core::domain::team_type::TeamType;
+use vss_core::domain::command::Command;
+use vss_core::domain::wheels_command::WheelsCommand;
+use vss_core::communications::state_receiver::StateReceiver;
+use vss_core::domain::field_transaformation_type::FieldTransformationType;
+use vss_core::communications::debug_sender::DebugSender;
+use vss_core::domain::debug::Debug;
+use vss_core::domain::pose::Pose;
+use vss_core::domain::point::Point;
+use vss_core::domain::state::State;
 
 fn main() {
     let mut command_sender = CommandSender::new();
