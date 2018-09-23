@@ -11,23 +11,24 @@ use vss_core::domain::debug::Debug;
 use vss_core::domain::pose::Pose;
 use vss_core::domain::point::Point;
 use vss_core::domain::state::State;
+use std::error::Error;
 
-fn main() {
-    let mut command_sender = CommandSender::new();
-    let mut debug_sender = DebugSender::new();
-    let mut state_receiver = StateReceiver::new();
+fn main() -> Result<(), Box<Error>> {
+    let mut command_sender = CommandSender::new_box()?;
+    let mut debug_sender = DebugSender::new_box()?;
+    let state_receiver = StateReceiver::new_box()?;
 
-    command_sender.create_socket(TeamType::Yellow);
-    debug_sender.create_socket(TeamType::Yellow);
-    state_receiver.create_socket();
+    command_sender.create_socket(TeamType::Yellow)?;
+    debug_sender.create_socket(TeamType::Yellow)?;
+    state_receiver.create_socket()?;
 
     let command = build_command();
 
     loop {
-        let state = state_receiver.receive_state(FieldTransformationType::None);
+        let state = state_receiver.receive_state(FieldTransformationType::None)?;
         let debug = build_debug(state);
-        command_sender.send_command(command.clone());
-        debug_sender.send_debug(debug.clone())
+        command_sender.send_command(command.clone())?;
+        debug_sender.send_debug(debug.clone())?;
     }
 }
 
